@@ -1,6 +1,6 @@
 function test(){
 
-    var input = "turn on 489,959 through 759,964 turn off 820,516 through 871,914";
+    input = "turn on 489,959 through 759,964 turn off 820,516 through 871,914";
     var output = document.getElementById("output");
 
     var list = input.split(" ");
@@ -41,7 +41,7 @@ function test(){
     for(var i =0; i < instructions.length; i++){
         if(instructions[i] === "on"){
             var xS = start[i][0];
-            
+            var yS = start[i][1];
 
             var xE = end[i][0];
             var yE = end[i][1];
@@ -55,11 +55,12 @@ function test(){
             xS = tempS;
             xE = tempL;
 
-            temps = Math.min(yS, yE);
+            tempS = Math.min(yS, yE);
             tempL = Math.max(yS, yE);
 
             yS = tempS;
             yE = tempL;
+
 
             for(var x = xS; x <= xE ; x++){
                 for(var y = yS; y <= yE ; y++){
@@ -83,11 +84,12 @@ function test(){
             xS = tempS;
             xE = tempL;
 
-            temps = Math.min(yS, yE);
+            tempS = Math.min(yS, yE);
             tempL = Math.max(yS, yE);
 
             yS = tempS;
             yE = tempL;
+
 
             for(var x = xS; x <= xE ; x++){
                 for(var y = yS; y <= yE ; y++){
@@ -125,6 +127,7 @@ function test(){
                     lightGrid[x][y] += 2;
                 }
             }
+        }
     }
 
     for(var x = 0; x < 1000 ; x++){
@@ -133,5 +136,4 @@ function test(){
         }
     }
     output.innerHTML = ans;
-    }
 }
